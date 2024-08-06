@@ -211,11 +211,21 @@
                             <span class="nav-text">Roles</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route('user.index')}}"><i class="la la-users"></i>Users</a></li>
-                            <li><a href="{{route('instructor.index')}}"><i
-                                        class="las la-chalkboard-teacher"></i>Instructors</a>
+                            {{-- <li>
+                                <a href="{{route('user.index')}}"><i class="la la-users"></i>
+                                    Users
+                                </a>
+                            </li> --}}
+                            <li>
+                                <a href="{{route('instructor.index')}}"><i class="las la-chalkboard-teacher"></i>
+                                    Instructors
+                                </a>
                             </li>
-                            <li><a href="{{route('student.index')}}"><i class="las la-book-reader"></i>Students</a></li>
+                            <li>
+                                <a href="{{route('student.index')}}"><i class="las la-book-reader"></i>
+                                    Students
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
