@@ -1,0 +1,117 @@
+@import "../var/var";
+@import "../var/functions";
+@import "../mixin/font-mixin";
+@import "../mixin/mixins";
+
+.content{
+    &__accordion{
+        list-style: none;
+        @include param(width,616,335);
+        display: grid;
+        grid-template-columns: 1fr;
+        @include param(row-gap,8,8);
+        &__item{
+            background: #FFFFFF;
+            border: 1px solid #EEEEF2;
+            @include param(border-width,1,1);
+            @include param(padding-top,24,33);
+            @include param(padding-bottom,24,33);
+            @include param(padding-right,24,24);
+            @include param(padding-left,24,24);
+            cursor: pointer;
+            &_open{
+                .content__accordion__item__title::before{
+                    background: url(../img/template/minus.svg) no-repeat;
+                    background-size: contain;
+                    @include param(top,11.5,11.5);
+                }
+                .content__accordion__item__desc{
+                    height: var(--infoHeight);
+                    @include param(padding-top,18,12);
+                }
+            }
+            &__title{
+                @include font(700,24,36,20,30);
+                color: #000000;
+                position: relative;
+                @include param(padding-left,64,64);
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    background: url(../img/template/plus.svg) no-repeat;
+                    background-size: contain;
+                    @include param(width,16,16);
+                    @include param(height,15,15) ;
+                }
+            }
+            &__desc{
+                @include font(500,16,24,16,24);
+                color: #1D1D1B;
+                opacity: 0.8;
+                transition: $transition;
+                transition-property: height,padding-top;
+                @include param(padding-top,0,0);
+                height: 0;
+                overflow: hidden;
+                @media screen and (max-width: 1024px) {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    &__list{
+        align-self: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        @include param(row-gap,56,40);
+    }
+    &__wrapper{
+        @include param(padding-bottom,80,60);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include param(column-gap,100,0);
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+            background: rgba(238, 238, 242, 0.4);
+            padding-top: mb(60);
+            width: 100vw;
+            margin-right: mb(-20);
+            padding-left: mb(20);
+            padding-right: mb(20);
+        }
+        &.content__wrapper_purple .content__item__img{
+            background: #EEEEF2;
+        }
+    }
+    &__item{
+        display: flex;
+        justify-content: space-between;
+        &__img{
+            @include param(margin-left,24,20);
+            @include param(width,80,48);
+            @include param(min-width,80,48);
+            @include param(height,80,48);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(#E9DDFF,.5);
+            @include param(border-radius,24,16);
+            img{
+                @include param(width,40,32);
+                height: auto;
+            }
+        }
+        &__info{
+            display: grid;
+            grid-template-columns: 1fr;
+            @include param(row-gap,16,12);
+            @include font(400,20,30,18,23);
+            color: #828282;
+            flex-grow: 2;
+        }
+    }
+}

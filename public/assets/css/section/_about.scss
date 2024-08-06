@@ -1,0 +1,68 @@
+@import "../var/var";
+@import "../var/functions";
+@import "../mixin/font-mixin";
+@import "../mixin/mixins";
+
+.about{
+    @include param(padding-top,78,24);
+    .h1{
+        text-align: center;
+        @include param(margin-bottom,86,48);
+    }
+    .h2{
+        @include param(margin-bottom,40,24);
+    }
+    &__wrapper{
+        @include param(margin-bottom,153,80);
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+        }
+        &_reverse{
+            flex-direction: row-reverse;
+            @media screen and (max-width: 1024px) {
+                flex-direction: column;
+            }
+        }
+    }
+    &__info{
+        @include param(width,613,335);
+        @include font(400,24,32,18,23.44);
+        @media screen and (max-width: 1024px) {
+            font-weight: 500;
+        }
+        ul{
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            @include param(row-gap,16,16);
+            width: 100%;
+            @include param(margin-bottom,32,24);
+            li{
+                position: relative;
+                @include param(padding-right,36,36);
+            }
+            li::before {
+                content: '';
+                display: inline-flex;
+                @include param(width,24,24);
+                @include param(height,24,24);
+                top: 0;
+                background: url(../img/template/ul1.svg) no-repeat;
+                background-size: contain;
+                right: 0;
+                position: absolute;
+                display: inline-flex;
+            }
+        }
+    }
+    &__img{
+        @include param(width,558,335);
+        align-self: flex-start;
+        position: relative;
+        @media screen and (max-width: 1024px) {
+            margin-bottom: mb(33);
+        }
+    }
+}

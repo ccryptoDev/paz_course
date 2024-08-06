@@ -1,0 +1,207 @@
+@import "../var/var";
+@import "../var/functions";
+@import "../mixin/font-mixin";
+@import "../mixin/mixins";
+
+.header__bg{
+    transform: scaleX(-1);
+    @media screen and (min-width: 1440px) {
+        right: auto;
+        left: 0;
+    }
+}
+.search{
+    display: inline-flex;
+    align-items: center;
+    @include param(border-bottom-left-radius,20,20);
+    @include param(border-top-right-radius,20,20);
+    @include param(padding-left,20,20);
+    @include param(padding-right,20,20);
+    background: white;
+    display: inline-flex;
+    @include param(height,56,56);
+    @include param(width,397,335);
+    border: 1px solid white;
+    @include param(border-width,1,1);
+    @media screen and (max-width: 1024px) {
+        border-color:#EEEEF2;
+    }
+    &__input{
+        @include font(400,20,20,20,30);
+        color: #828282;
+        width: 100%;
+        &::placeholder{
+            @include font(400,20,20,20,30);
+            color: #828282;  
+        }
+    }
+    &__btn{
+        @include param(width,16,16);
+        @include param(height,16,16);
+        @include param(margin-left,12,12);
+        display: inline-block;
+        background: url(../img/template/search.svg) no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+}
+.blog{
+    @include param(padding-top,78,24);
+    .h1{
+        @include param(margin-bottom,86,42);
+    }
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            margin-bottom: mb(38);
+        }
+    }
+    &__list{
+        @include param(margin-bottom,76,76);   
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        @include param(row-gap,80,32);
+        @include param(column-gap,40,0);
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    &__item{
+        border: 1px solid #EEEEF2;
+        width: 100%;
+        @include param(border-width,1,1);
+        @include param(padding-bottom,32,32);
+        @include param(border-top-right-radius,50,45);
+        @include param(border-bottom-left-radius,50,45);
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        direction: rtl;
+        overflow: hidden;
+        @media screen and (max-width: 1024px) {
+            overflow: hidden;
+        }
+        &__img{
+            @include param(border-bottom-left-radius,65,45);
+            width: 100%;
+            @include param(height,205,205);
+            @include param(margin-bottom,24,24);
+            display: inline-flex;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &__desc{
+            @include param(margin-bottom,14,18);
+        }
+        &__date{
+            @include font(500,16,24,16,24);
+            color: #3B2463;
+            display: inline-flex;
+            align-items: center;
+            &::before{
+                content: '';
+                @include param(width,14.4,14.4);
+                @include param(height,16,16);
+                @include param(margin-left,8,8);
+                display: inline-block;
+                background: url(../img/template/date.svg) no-repeat;
+                background-size: contain;
+            }
+        }
+        &__info{
+            display: grid;
+            grid-template-columns: 1fr;
+            @include param(row-gap,9,7);
+            @include font(500,18,23.44,18,23.44);
+            color: #828282;
+            @include param(padding-left,24,24);
+            @include param(padding-right,24,24);
+            .h3{
+                @include font(700,24,36,24,36);
+            }
+        }
+    }
+    .container{
+        position: relative;
+        @include param(padding-bottom,150,80);
+        &::before{
+            content: '';
+            background: url(../img/template/bgAngle7.svg) no-repeat;
+            background-size: contain;
+            @include param(width,1473,0);
+            @include param(height,393,0);
+            @include param(right,-88,0);
+            @include param(bottom,-60,0);
+            position: absolute;
+            display: inline-block;
+            z-index: -1;
+            @media screen and (max-width: 1024px) {
+                content: none;
+            }
+            @media screen and (min-width: 1440px) {
+                right: calc( -1 * (100vw - 1264px) / 2 );
+            }
+        }
+    }
+    &__navigation{
+        display: flex;
+        justify-content: center;
+        &__list{
+            display: inline-flex;
+            align-items: center;
+        }
+        .current,a{
+            @include font(400,24,32,24,32);   
+            display: inline-flex;
+            justify-content: center;
+            @include param(min-width,40,40);   
+            &:not(:last-child){
+                @include param(margin-left,8,8);   
+            }      
+        }
+        .current{
+            color: #3B2463;
+        }
+        a{
+            color: #828282;
+        }
+        a.prev,a.next{
+            @include param(margin-left,24,24);  
+            border: 1.5px solid #3B2463 !important;
+            @include param(width,40,40);
+            @include param(height,40,40);
+            border-radius: 50%;
+            background: transparent !important;
+            transition: $transition;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            &::after{
+                content: '';
+                background: url(../img/template/sliderArrow.svg) no-repeat;
+                background-size: contain;
+                @include param(width,10,10); 
+                @include param(height,16,16); 
+                display: inline-flex;
+                transform: rotate(180deg);
+            }
+            &:hover{
+                cursor: pointer;
+            } 
+        }
+        a.next{
+            @include param(margin-right,16,16); 
+            margin-left: 0;
+            &::after{
+                transform: rotate(0deg);
+            }  
+        }
+    }
+}

@@ -1,0 +1,279 @@
+@import "../var/var";
+@import "../var/functions";
+@import "../mixin/font-mixin";
+@import "../mixin/mixins";
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+.login{
+    background: $yellow;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 1024px) {
+        background: white;
+    }
+    &_password{
+        background: $yellow;  
+        text-align: center;
+    }
+    &_green{
+        background-color: $green;
+    }
+    .container{
+        position: relative;
+        flex-grow: 1;
+    }
+    .h1{
+        @include font(700,64,72,36,46.87);
+        @include param(margin-bottom,49,33);
+    }
+    &__wrapper{
+        @include param(width,476,335);
+        @include param(padding-top,240,24);
+        @include param(padding-bottom,240,82);
+    }
+    &__desc{
+        @include font(700,24,36,18,23);
+        @include param(margin-bottom,32,24);
+        color: #000000;
+        @media screen and (max-width: 1024px) {
+            font-weight: 500;
+        }
+    }
+    &__desc1{
+        @include font(400,20,30,18,23.44);
+        @include param(margin-top,-16,0);
+        color: #000000;
+        @media screen and (max-width: 1024px) {
+            font-weight: 500;
+        }
+    }
+    &__bg{
+        height: 100%;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        @include param(width,876,335);
+        @include param(left,-88,0);
+        @media screen and (min-width: 1440px){
+            width: calc((100vw - 1440px) / 2 + 876px);
+            left: calc(-1*((100vw - 1440px) / 2 + 88px ));
+        }
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
+        &__angle{
+            width: auto;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        &__img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .login__form__error{
+            position: relative;
+            span.login__form__err{
+                opacity: 1;
+            }
+            .login__form__input{
+                border-color: #F42C2C;
+            }
+        }
+        span.login__form__err{
+            position: absolute;
+            color: #F42C2C;
+            @include font(500,14,22,14,22);
+            @include param(bottom,-20,-20);
+            @include param(right,20,20);
+            opacity: 0;
+            &::after{
+                content: none;
+            }
+        }
+        &__login{
+            position: relative;
+            @include param(margin-bottom,20,20);
+            display: flex;
+            width:100%;
+        }
+        &__password{
+            position: relative;
+            display: flex;
+            width:100%;
+            @include param(margin-bottom,24,24);
+            &__show{
+                background: url(../img/content/login/show.svg) no-repeat;
+                background-size: contain;
+                @include param(width,24,24);
+                @include param(height,24,24);
+                @include param(top,16,16);
+                @include param(left,20,20);
+                position: absolute;
+                z-index: 1;
+                cursor: pointer;
+                &_hide{
+                    background: url(../img/content/login/hide.svg) no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+        &__input{
+            @include font(500,16,22,16,22);
+            @include param(border-bottom-left-radius,20,20);
+            @include param(border-top-right-radius,20,20);
+            @include param(padding-left,20,20);
+            @include param(padding-right,20,20);
+            cursor: pointer;
+            display: inline-flex;
+            @include param(height,56,56);
+            background: white;
+            color: #828282;
+            width: 100%;
+            border: 1px solid white;
+            @include param(border-width,1,1);
+            @media screen and (max-width: 1024px) {
+                border-color:#EEEEF2;
+            }
+            &::placeholder{
+                @include font(500,16,22,16,22);
+                color: #828282;  
+            }
+        }
+        &__wrapper{
+            display: flex;
+            justify-content: space-between;
+            @include param(margin-bottom,17,22);
+            width: 100%;
+            a,span{
+                @include font(500,20,30,16,24);
+                color: #3B2463;
+                position: relative;
+                align-self: flex-start;
+                @media screen and (max-width: 1024px) {
+                    font-weight: 400;
+                }
+            }
+            a{
+                transition: $transition;
+            }
+            a:hover{
+                color: #3B2463;
+            }
+        }
+        .checkbox{  
+            &.login__form__error .custom-checkbox p::before{
+                border-color: #F42C2C;
+            }
+            .login__form__err{
+                right: 0;
+                @include param(bottom,-12,-12);
+            }
+            .custom-checkbox{
+                cursor: pointer;
+            }
+            .custom-checkbox>input {
+                position: absolute;
+                z-index: -1;
+                opacity: 0;
+            }
+            .custom-checkbox>p {
+                display: inline-flex;
+                align-items: center;
+                user-select: none;
+            }
+            .custom-checkbox>p::before {
+                content: '';
+                display: inline-block;
+                flex-shrink: 0;
+                flex-grow: 0;
+                border: 1px solid $purple;
+                @include param(border-width,1,1);
+                @include param(border-radius,4,4);
+                @include param(width,24,24);
+                @include param(height,24,24);
+                @include param(margin-left,12,12);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 50% 50%;
+                background-color: white;
+                transition: $transition;
+            }
+            .custom-checkbox>input:checked+p::before {
+                background-color: $purple;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+            }  
+        }
+        &__submit{
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            @include param(margin-bottom,16,16);
+        }
+        &__or{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include font(400,16,24,16,24);
+            @include param(margin-bottom,16,16);
+            color: black;
+            @include param(width,460,319);
+            &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin-top: auto;
+                margin-bottom: auto;
+                @include param(height,1,1);
+                background: #828282;
+                width: 100%;
+            }
+            span{
+                display: inline-flex;
+                background: $yellow;
+                @include param(padding-left,16,16);
+                @include param(padding-right,16,16);
+                text-transform: uppercase;  
+                z-index: 2;
+                @media screen and (max-width: 1024px) {
+                    background: white;
+                }
+            }
+        }
+        &__google{
+            background: white;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            width: 100%;
+            @media screen and (max-width: 1024px) {
+                border: mb(1) solid #EEEEF2;
+            }
+            &:hover{
+                background: white;
+            }
+            &::after{
+                content: '';
+                background: url(../img/content/login/google.svg) no-repeat;
+                background-size: contain;
+                @include param(margin-right,10,10);
+                @include param(width,20,20);
+                @include param(height,20,20);
+                display: inline-flex;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.login__form__login {
+  display: block !important;
+}
+.login__form__password {
+  display: block !important;
+}
+header .user-image {
+  width: auto;
+  height: auto;
+}
+header .user-image img {
+  width: 32px;
+  height: auto;
+}
+.logged {
+  margin-left: 32px;
+}
+.dropdown-content {
+  top: 48px;
+  left: -140px;
+}

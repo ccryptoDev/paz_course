@@ -1,0 +1,137 @@
+@import "../var/var";
+@import "../var/functions";
+@import "../mixin/font-mixin";
+@import "../mixin/mixins";
+
+.master{
+    @include param(padding-top,78,24);
+    .h1{
+        @include param(margin-bottom,86,48);
+    }
+    &__wrapper{
+        @include param(margin-bottom,148,60);
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width: 1024px) {
+            flex-direction: column-reverse;
+        }
+        &_reverse{
+            flex-direction: row-reverse;
+            @media screen and (max-width: 1024px) {
+                flex-direction: column;
+            }
+            .photo_orange_bottom,.photo__img{
+                transform: scaleX(-1);
+            }
+        }
+    }
+    .content__wrapper_orange .content__item__img{
+        background: rgba(#F36F21,.25);
+    }
+    &__info{
+        @include param(width,613,335);
+        @include font(400,24,32,18,23.44);
+        @media screen and (max-width: 1024px) {
+            font-weight: 500;
+        }
+    }
+    &__img{
+        @include param(width,558,335);
+        @include param(margin-top,177,0);
+        align-self: flex-start;
+        position: relative;
+        @media screen and (max-width: 1024px) {
+            margin-bottom: mb(33);
+        }
+        .photo{
+            @include param(margin-right,38,0);
+        }
+    }
+    &__btn{
+        display: flex;
+        justify-content: center;
+        @media screen and (max-width: 1024px) {
+            background: rgba(238, 238, 242, 0.4);
+            padding-bottom: mb(60);
+            width: 100vw;
+            margin-right: mb(-20);
+            padding-left: mb(20);
+            padding-right: mb(20);
+        }
+    }
+    .container{
+        @include param(padding-bottom,150,0);
+        position: relative;
+        &::before{
+            content: '';
+            background: url(../img/template/bgAngle6.svg) no-repeat;
+            background-size: contain;
+            @include param(width,1081,348);
+            @include param(height,393,1466);
+            @include param(left,-88,-20);
+            @include param(bottom,-60,-288);
+            position: absolute;
+            display: inline-block;
+            z-index: -1;
+            @media screen and (max-width: 1024px) {
+                content: none;
+            }
+            @media screen and (min-width: 1440px) {
+                left: calc( -1 * (100vw - 1264px) / 2 );
+            }
+        }
+    }
+    &_practitioner{
+        .container{
+            &::before{
+                content: '';
+                background: url(../img/template/bgAngle7.svg) no-repeat;
+                background-size: contain;
+                @include param(width,1473,0);
+                @include param(height,393,0);
+                @include param(right,-88,0);
+                @include param(bottom,-60,0);
+                position: absolute;
+                display: inline-block;
+                z-index: -1;
+                @media screen and (max-width: 1024px) {
+                    content: none;
+                }
+                @media screen and (min-width: 1440px) {
+                    right: calc( -1 * (100vw - 1264px) / 2 );
+                }
+            }
+        }
+        .master__wrapper{
+            @media screen and (max-width: 1024px) {
+                z-index: 1;
+                position: relative;
+            }
+        }
+        .master__wrapper_reverse {
+            @media screen and (max-width: 1024px) {
+                flex-direction: column-reverse;
+            }
+        }
+        .content__wrapper{
+            @media screen and (max-width: 1024px) {
+                position: relative;
+                padding-top: mb(20);
+            }
+            &::before{
+                @media screen and (max-width: 1024px) {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: mb(90);
+                    background: url(../img/template/bgAngle7.svg) no-repeat;
+                    background-size: cover;
+                    position: absolute;
+                    display: inline-block;
+                    left: 0;
+                    top: mb(-90);
+                }
+            }
+        }
+    }
+}
