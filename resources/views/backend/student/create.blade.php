@@ -41,11 +41,11 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" name="fullName"
-                                            value="{{old('fullName')}}">
+                                        <input type="text" class="form-control" name="userName"
+                                            value="{{old('userName')}}">
                                     </div>
-                                    @if($errors->has('fullName'))
-                                    <span class="text-danger"> {{ $errors->first('fullName') }}</span>
+                                    @if($errors->has('userName'))
+                                    <span class="text-danger"> {{ $errors->first('userName') }}</span>
                                     @endif
                                 </div>
 
@@ -76,7 +76,7 @@
                                         <label class="form-label">Role</label>
                                         <select class="form-control" name="roleId">
                                             @forelse ($role as $r)
-                                            <option value="{{$r->id}}" {{old('roleId')==$r->id?'selected':''}}>
+                                            <option value="{{$r->id}}" {{old('roleId') == $r->id ? 'selected' : ''}}>
                                                 {{$r->name}}</option>
                                             @empty
                                             <option value="">No Role Found</option>

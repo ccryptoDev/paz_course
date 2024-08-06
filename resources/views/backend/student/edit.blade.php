@@ -44,11 +44,11 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" name="fullName"
-                                            value="{{old('fullName', $student->name)}}">
+                                        <input type="text" class="form-control" name="userName"
+                                            value="{{old('userName', $student->name)}}">
                                     </div>
-                                    @if($errors->has('fullName'))
-                                    <span class="text-danger"> {{ $errors->first('fullName') }}</span>
+                                    @if($errors->has('userName'))
+                                    <span class="text-danger"> {{ $errors->first('userName') }}</span>
                                     @endif
                                 </div>
 
@@ -74,11 +74,14 @@
                                     @endif
                                 </div>
 
+                                @php
+                                    $birthDate = old('birthDate', $student->date_of_birth ? \Illuminate\Support\Carbon::parse($student->date_of_birth)->format('Y-m-d') : '');
+                                @endphp
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">Date of Birth</label>
                                         <input type="date" name="birthDate"
-                                            value="{{old('birthDate',$student->date_of_birth)}}" class="form-control"
+                                            value="{{old('birthDate', $birthDate)}}" class="form-control"
                                             id="">
                                     </div>
                                     @if($errors->has('birthDate'))
@@ -133,7 +136,7 @@
                                 </div>
                                 
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                     <button type="submit" class="btn btn-light">Cencel</button>
                                 </div>
                             </div>

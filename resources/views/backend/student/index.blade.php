@@ -53,7 +53,7 @@
                                                 <th>{{__('Name')}}</th>
                                                 <th>{{__('Email')}}</th>
                                                 <th>{{__('Contact')}}</th>
-                                                <th>{{__('Role')}}</th>
+                                                {{-- <th>{{__('Role')}}</th> --}}
                                                 <th>{{__('Gender')}}</th>
                                                 <th>{{__('Status')}}</th>
                                                 <th>{{__('Action')}}</th>
@@ -63,11 +63,11 @@
                                             @forelse ($data as $d)
                                             <tr>
                                                 <td><img class="rounded-circle" width="35" height="35"
-                                                        src="{{asset('uploads/students/'.$d->image)}}" alt=""></td>
-                                                <td><strong>{{$d->name_en}}</strong></td>
+                                                        src="{{asset('uploads/users/'.$d->image)}}" alt=""></td>
+                                                <td><strong>{{$d->name}}</strong></td>
                                                 <td>{{$d->email}}</td>
-                                                <td>{{$d->contact_en}}</td>
-                                                <td>{{$d->role?->name}}</td>
+                                                <td>{{$d->phone}}</td>
+                                                {{-- <td>{{$d->role?->name}}</td> --}}
                                                 <td>
                                                    {{ $d->gender == 'male' ? __('Male') : ($d->gender == 'female' ? __('Female') : __('Other')) }}
                                                 </td>
@@ -125,7 +125,7 @@
                                     <div class="card-body pt-2">
                                         <div class="text-center">
                                             <div class="profile-photo">
-                                                <img src="{{asset('uploads/students/'.$d->image)}}" width="100"
+                                                <img src="{{asset('uploads/users/'.$d->image)}}" width="100"
                                                     height="100" class="rounded-circle" alt="">
                                             </div>
                                             <h3 class="mt-4 mb-1">{{$d->name_en}}</h3>

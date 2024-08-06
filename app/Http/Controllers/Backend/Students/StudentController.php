@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Backend\Students;
 
 use App\Http\Controllers\Controller;
-use App\Models\Student;
+// use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\Backend\Students\AddNewRequest;
-use App\Http\Requests\Backend\Students\UpdateRequest;
+// use App\Http\Requests\Backend\Students\AddNewRequest;
+// use App\Http\Requests\Backend\Students\UpdateRequest;
+use App\Http\Requests\Backend\User\AddNewRequest;
+use App\Http\Requests\Backend\User\UpdateRequest;
 use App\Models\Role;
 use Exception;
 use Illuminate\Support\Facades\Hash;
@@ -19,7 +22,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $data = Student::paginate();
+        $data = User::where('role_id', 4)->paginate(10);
         return view('backend.student.index', compact('data'));
     }
 
@@ -38,11 +41,11 @@ class StudentController extends Controller
     public function store(AddNewRequest $request)
     {
         try {
-            $student = new Student();
-            $student->name = $request->fullName;
+            $student = new User();
+            $student->name = $request->userName;
             $student->phone = $request->contactNumber;
             $student->email = $request->emailAddress;
-            $student->role_id = $request->roleId;
+            $student->role_id = 4;
             $student->date_of_birth = $request->birthDate;
             $student->gender = $request->gender;
             $student->status = $request->status;
@@ -50,7 +53,7 @@ class StudentController extends Controller
 
             if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
-                $request->image->move(public_path('uploads/students'), $imageName);
+                $request->image->move(public_path('uploads/users'), $imageName);
                 $student->image = $imageName;
             }
             if ($student->save())
@@ -66,7 +69,7 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show(User $student)
     {
         //
     }
@@ -77,7 +80,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $role = Role::get();
-        $student = Student::findOrFail(encryptor('decrypt', $id));
+        $student = User::findOrFail(encryptor('decrypt', $id));
 
         return view('backend.student.edit', compact('role', 'student'));
     }
@@ -89,11 +92,10 @@ class StudentController extends Controller
     {
         try {
 
-            $student = Student::findOrFail(encryptor('decrypt', $id));
-            $student->name = $request->fullName;
-            $student->phone = $request->contactNumber;
+            $student = User::findOrFail(encryptor('decrypt', $id));
+            $student->name = $request->userName;
             $student->email = $request->emailAddress;
-            $student->role_id = $request->roleId;
+            $student->phone = $request->contactNumber;
             $student->date_of_birth = $request->birthDate;
             $student->gender = $request->gender;
             $student->status = $request->status;
@@ -101,7 +103,7 @@ class StudentController extends Controller
 
             if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
-                $request->image->move(public_path('uploads/students'), $imageName);
+                $request->image->move(public_path('uploads/users'), $imageName);
                 $student->image = $imageName;
             }
             if ($student->save())
@@ -119,8 +121,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $data = Student::findOrFail(encryptor('decrypt', $id));
-        $image_path = public_path('uploads/students') . $data->image;
+        $data = User::findOrFail(encryptor('decrypt', $id));
+        $image_path = public_path('uploads/users') . $data->image;
 
         if ($data->delete()) {
             if (File::exists($image_path))
