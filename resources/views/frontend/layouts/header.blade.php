@@ -37,11 +37,11 @@
                     @if(request()->session()->get('studentLogin'))
                         <div class="dropdown user-image" id="imageDropdown">
                             <a href="{{route('studentdashboard')}}" onclick="toggleDropdown(event)" class="logged">
-                                <img src="{{asset('uploads/students/'.request()->session()->get('image'))}}" alt="User Profile" />
+                                <img src="{{asset('uploads/users/'.request()->session()->get('image'))}}" alt="User Profile" />
                             </a>
                             <div class="dropdown-content">
-                                <a href="{{route('student_profile')}}">Profile</a>
                                 <a href="{{route('studentdashboard')}}">Dashboard</a>
+                                <a href="{{route('student_profile')}}">Profile</a>
                                 <a href="{{route('user.logout')}}" class="text-danger">Logout</a>
                             </div>
                         </div>
@@ -133,12 +133,12 @@
                     @if(request()->session()->get('studentLogin'))
                     <div class="dropdown user-image ms-3" id="imageDropdown">
                         <a href="{{route('studentdashboard')}}" onclick="toggleDropdown(event)">
-                            <img src="{{asset('uploads/students/'.request()->session()->get('image'))}}"
+                            <img src="{{asset('uploads/users/'.request()->session()->get('image'))}}"
                                 alt="Student Profile" height="48" width="48"/>
                         </a>
                         <div class="dropdown-content">
-                            <a href="{{route('student_profile')}}">Profile</a>
                             <a href="{{route('studentdashboard')}}">Dashboard</a>
+                            <a href="{{route('student_profile')}}">Profile</a>
                             <a href="{{route('user.logout')}}" class="text-danger">Logout</a>
                         </div>
                     </div>
