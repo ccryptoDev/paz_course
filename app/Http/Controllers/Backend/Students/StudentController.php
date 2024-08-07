@@ -99,7 +99,9 @@ class StudentController extends Controller
             $student->date_of_birth = $request->birthDate;
             $student->gender = $request->gender;
             $student->status = $request->status;
-            $student->password = Hash::make($request->password);
+
+            if ($request->password)
+                $student->password = Hash::make($request->password);
 
             if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' . $request->image->extension();

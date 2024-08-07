@@ -48,6 +48,7 @@ class InstructorController extends Controller
             $instructor->bio = $request->bio;
             $instructor->status = $request->status;
             $instructor->password = Hash::make($request->password);
+            
             if ($request->hasFile('image')) {
                 $imageName = (Role::find($request->roleId)->name) . '_' .  $request->fullName . '_' . rand(999, 111) .  '.' . $request->image->extension();
                 $request->image->move(public_path('uploads/users'), $imageName);
@@ -104,7 +105,10 @@ class InstructorController extends Controller
             $instructor->role_id = $request->roleId;
             $instructor->bio = $request->bio;
             $instructor->status = $request->status;
-            $instructor->password = Hash::make($request->password);
+
+            if ($request->password)
+                $instructor->password = Hash::make($request->password);
+            
             if ($request->hasFile('image')) {
                 $imageName = (Role::find($request->roleId)->name) . '_' .  $request->fullName . '_' . rand(999, 111) .  '.' . $request->image->extension();
                 $request->image->move(public_path('uploads/users'), $imageName);
