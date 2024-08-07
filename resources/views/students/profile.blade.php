@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Breadcrumb Starts Here -->
-<div class="py-0">
+{{-- <div class="py-0">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent mb-0">
@@ -14,10 +14,10 @@
             </ol>
         </nav>
     </div>
-</div>
+</div> --}}
 
 <!-- Students Info area Starts Here -->
-<section class="section students-info">
+<section class="section students-info profile">
     <div class="container">
         <div class="students-info-intro">
             <!-- profile Details   -->
@@ -25,10 +25,10 @@
                 <div>
                     <div class="students-info-intro-start">
                         <div class="image">
-                            <img src="{{ asset('public/uploads/students/' . $student_info->image) }}" alt="Student" />
+                            <img src="{{ asset('uploads/users/' . $student_info->image) }}" alt="Student" />
                         </div>
                         <div class="text">
-                            <h5>{{$student_info->name_en}}</h5>
+                            <h5>{{$student_info->name}}</h5>
                             <p>{{$student_info->profession?$student_info->profession:'Student'}}</p>
                         </div>
                     </div>
@@ -97,19 +97,19 @@
                             <div class="about-student">
                                 <h6 class="font-title--card">About Me</h6>
                                 <p class="font-para--md">
-                                    {{$student_info->bio?$student_info->bio:"Student's Bio"}}
+                                    {{$student_info->bio ? $student_info->bio : "Student's Bio"}}
                                 </p>
                             </div>
                         </div>
                         <div class="tab-content__profile-content">
                             <div class="info-student">
-                                <h6 class="font-title--card">{{$student_info->name_en}}'s Information</h6>
+                                <h6 class="font-title--card">{{$student_info->name}}'s Information</h6>
                                 <dl class="row my-0 info-student-topic">
                                     <dt class="col-sm-4">
                                         <span>Name</span>
                                     </dt>
                                     <dd class="col-sm-8">
-                                        <p>{{$student_info->name_en}}</p>
+                                        <p>{{$student_info->name}}</p>
                                     </dd>
                                 </dl>
                                 <dl class="row my-0 info-student-topic">
@@ -125,7 +125,7 @@
                                         <span>What do you do</span>
                                     </dt>
                                     <dd class="col-sm-8">
-                                        <p>{{$student_info->profession?$student_info->profession:'Student'}}</p>
+                                        <p>{{$student_info->profession ? $student_info->profession : 'Student'}}</p>
                                     </dd>
                                 </dl>
                                 <dl class="row my-0 info-student-topic">
@@ -133,17 +133,17 @@
                                         <span>Phone Number</span>
                                     </dt>
                                     <dd class="col-sm-8">
-                                        <p>{{$student_info->contact_en?$student_info->contact_en:'+880'}}</p>
+                                        <p>{{$student_info->phone ? $student_info->phone : ''}}</p>
                                     </dd>
                                 </dl>
-                                <dl class="row my-0 info-student-topic">
+                                {{-- <dl class="row my-0 info-student-topic">
                                     <dt class="col-sm-4">
                                         <span>Nationality</span>
                                     </dt>
                                     <dd class="col-sm-8">
                                         <p>{{$student_info->nationality}}</p>
                                     </dd>
-                                </dl>
+                                </dl> --}}
                             </div>
                         </div>
                     </div>
@@ -152,6 +152,26 @@
                 {{-- Setting --}}
                 <div class="tab-pane fade" id="nav-setting" role="tabpanel" aria-labelledby="nav-setting-tab">
                     <div class="row">
+                        <div class="col-lg-3 order-1 order-lg-0 mt-4 mt-lg-0">
+                            <div class="white-bg">
+                                <div class="change-image-wizard">
+                                    <div class="image mx-auto">
+                                        <img src="{{ asset('uploads/users/' . $student_info->image) }}"
+                                            alt="User" height="200" width="200">
+                                    </div>
+                                    <form id="changeImageForm" action="{{ route('change_image') }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="d-flex justify-content-center">
+                                            <input type="file" name="image" id="newImageInput">
+                                            <button type="button" id="changeImageButton"
+                                                class="button button--primary-outline">CHANGE IMAGE</button>
+                                        </div>
+                                    </form>
+                                    <p>Image size should be under 1MB image ratio 200px.</p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-9 order-2 order-lg-0">
                             <div class="white-bg">
                                 <div class="students-info-form">
@@ -160,9 +180,9 @@
                                         @csrf
                                         <div class="row g-3">
                                             <div class="col-lg-6">
-                                                <label for="fullName_en">Full Name</label>
-                                                <input type="text" class="form-control" name="fullName_en"
-                                                    value="{{$student_info->name_en}}" placeholder="Enter Your Name" />
+                                                <label for="fullName">Full Name</label>
+                                                <input type="text" class="form-control" name="fullName"
+                                                    value="{{$student_info->name}}" placeholder="Enter Your Name" />
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="dob">Date of Birth</label>
@@ -186,9 +206,9 @@
                                         </div>
                                         <div class="row g-3">
                                             <div class="col-lg-6">
-                                                <label for="contactNumber_en">Phone Number</label>
-                                                <input type="text" class="form-control" name="contactNumber_en"
-                                                    value="{{$student_info->contact_en}}"
+                                                <label for="contactNumber">Phone Number</label>
+                                                <input type="text" class="form-control" name="contactNumber"
+                                                    value="{{$student_info->contact}}"
                                                     placeholder="Enter Your Contact No" />
                                             </div>
                                             <div class="col-lg-6">
@@ -282,26 +302,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 order-1 order-lg-0 mt-4 mt-lg-0">
-                            <div class="white-bg">
-                                <div class="change-image-wizard">
-                                    <div class="image mx-auto">
-                                        <img src="{{ asset('public/uploads/students/' . $student_info->image) }}"
-                                            alt="User" height="200" width="200">
-                                    </div>
-                                    <form id="changeImageForm" action="{{ route('change_image') }}" method="post"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="d-flex justify-content-center">
-                                            <input type="file" name="image" id="newImageInput">
-                                            <button type="button" id="changeImageButton"
-                                                class="button button--primary-outline">CHANGE IMAGE</button>
-                                        </div>
-                                    </form>
-                                    <p>Image size should be under 1MB image ratio 200px.</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -314,7 +314,7 @@
 @endsection
 
 @push('scripts')
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
 <script>
     $(document).ready(function() {
             // Hide the file input initially

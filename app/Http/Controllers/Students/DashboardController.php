@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Students;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\User;
 use App\Models\Enrollment;
 use App\Models\Course;
 use App\Models\Checkout;
@@ -13,7 +14,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $student_info = Student::find(currentUserId());
+        $student_info = User::find(currentUserId());
         $enrollment = Enrollment::where('student_id', currentUserId())->get();
         $course = Course::get();
         $checkout = Checkout::where('student_id', currentUserId())->get();

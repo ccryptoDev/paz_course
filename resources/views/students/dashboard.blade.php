@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Breadcrumb Starts Here -->
-<div class="py-0">
+{{-- <div class="py-0">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent mb-0">
@@ -14,7 +14,7 @@
             </ol>
         </nav>
     </div>
-</div>
+</div> --}}
 
 <!-- Students Info area Starts Here -->
 <section class="section students-info">
@@ -25,10 +25,10 @@
                 <div>
                     <div class="students-info-intro-start">
                         <div class="image">
-                            <img src="{{ asset('public/uploads/students/' . $student_info->image) }}" alt="Student" />
+                            <img src="{{ asset('uploads/users/' . $student_info->image) }}" alt="Student" />
                         </div>
                         <div class="text">
-                            <h5>{{$student_info->name_en}}</h5>
+                            <h5>{{$student_info->name}}</h5>
                             <p>{{$student_info->profession?$student_info->profession:'Student'}}</p>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                     <button class="nav-link "><a href="{{route('student_profile')}}"
                             class="text-secondary">Profile</a></button>
 
-                    <button class="nav-link "><a href="{{route('home')}}" class="text-secondary">Home</a></button>
+                    {{-- <button class="nav-link "><a href="{{route('home')}}" class="text-secondary">Home</a></button> --}}
                 </div>
             </nav>
         </div>
@@ -116,8 +116,8 @@
                     aria-labelledby="nav-profile-tab">
                     <div class="tab-content__profile">
                         <section class="section section--bg-white calltoaction">
-                            <div class="container">
-                                <div class="row">
+                            {{-- <div class="container">
+                                <div class="row"> --}}
                                     <div class="col-md-6 col-12 mx-auto text-center">
                                         <h5 class="font-title--sm">Invest in your career with Us</h5>
                                         <p class="my-4 font-para--lg">
@@ -125,11 +125,12 @@
                                             venenatis, ex tortor ultricies
                                             magna, et faucibus magna eros quis arcu.
                                         </p>
-                                        <a href="{{route('searchCourse')}}"
-                                            class="button button-md button--primary">Let’s Go</a>
+                                        <a href="{{route('searchCourse')}}" class="button button-md button--primary">
+                                            Let’s Go
+                                        </a>
                                     </div>
-                                </div>
-                            </div>
+                                {{-- </div>
+                            </div> --}}
                         </section>
                     </div>
                 </div>
