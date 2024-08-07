@@ -63,7 +63,7 @@
     @yield('custom-style')
 </head>
 
-<body>
+<body @yield('body-attr')>
 
     <body>
         @include('frontend.layouts.header')

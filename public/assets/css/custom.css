@@ -19,3 +19,61 @@ header .user-image img {
   top: 48px;
   left: -140px;
 }
+/* tab menu in the user profile */
+.students-info-intro .nav {
+  position: unset;
+  justify-content: space-between;
+}
+.students-info-intro .nav::before {
+  display: none;
+}
+.students-info-intro-start::after {
+  right: auto;
+  left: 55px;
+}
+.students-info-intro-end .completed-courses::after {
+  right: 0;
+}
+.students-info-intro-end .enrolled-courses-icon, 
+.students-info-intro-end .completed-courses-icon {
+  margin-right: 0;
+  margin-left: 12px;
+}
+.students-info-intro-end .enrolled-courses {
+  padding-right: 0;
+  padding-left: 30px;
+}
+.students-info-intro-end .completed-courses {
+  padding-left: 0;
+  padding-right: 30px;
+}
+.students-info-intro-start .image {
+  margin-right: 0;
+  margin-left: 24px;
+}
+.students-info-intro nav .nav button {
+  margin-right: 0;
+}
+.profile .students-info-intro .nav {
+  position: unset;
+  justify-content: unset;
+}
+.profile .students-info-intro nav .nav button {
+  margin-left: 62px;
+}
+.tab-content__profile .calltoaction {
+  width: 100%;
+}
+.profile .tab-content__profile {
+  justify-content: space-between;
+  gap: 30px;
+}
+.profile .students-info-main .tab-content__profile-content {
+  margin-right: 0;
+}
+.info-student-topic {
+  align-items: center;
+}
+.info-student-topic dd {
+  margin-bottom: 0;
+}
