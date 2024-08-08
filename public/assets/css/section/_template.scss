@@ -66,33 +66,33 @@ body{
         background: $orange;
     }
 }
-.breadcrumb{
-    display: flex;
-    list-style: none;
-    @include font(700,20,26,18,23);
-    color: #E72A30;
-    @include param(margin-bottom,15,15);
-    @media screen and (max-width: 1024px) {
-        padding-right: mb(31);
-    }
-    a{
-        @include font(700,20,26,18,23);
-        color: #E72A30;
-        &::after{
-            content: '/';
-            @include font(700,20,26,18,23);
-            color: #606871;
-            @include param(padding-left,7,7);
-            @include param(padding-right,3,3);
-        }
-    }
-    &__black a{
-        color: black;
-    }
-    &__gray a{
-        color: gray;
-    }
-}
+// .breadcrumb{
+//     display: flex;
+//     list-style: none;
+//     @include font(700,20,26,18,23);
+//     color: #E72A30;
+//     @include param(margin-bottom,15,15);
+//     @media screen and (max-width: 1024px) {
+//         padding-right: mb(31);
+//     }
+//     a{
+//         @include font(700,20,26,18,23);
+//         color: #E72A30;
+//         &::after{
+//             content: '/';
+//             @include font(700,20,26,18,23);
+//             color: #606871;
+//             @include param(padding-left,7,7);
+//             @include param(padding-right,3,3);
+//         }
+//     }
+//     &__black a{
+//         color: black;
+//     }
+//     &__gray a{
+//         color: gray;
+//     }
+// }
 .header{
     position: relative;
     &__wrapper{

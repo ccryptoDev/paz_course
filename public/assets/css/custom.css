@@ -77,3 +77,7 @@ header .user-image img {
 .info-student-topic dd {
   margin-bottom: 0;
 }
+.breadcrumb-item+.breadcrumb-item::before {
+  float: right;
+  padding-left: 0.5rem;
+}
