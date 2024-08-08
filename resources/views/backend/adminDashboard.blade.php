@@ -83,7 +83,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12 col-sm-12">
+
+            <!-- Assign Task -->
+            {{-- <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Assign Task</h5>
@@ -188,8 +190,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-12 col-sm-12">
+            </div> --}}
+            <!-- Assign Task -->
+
+            <!-- Notification -->
+            {{-- <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Notifications</h4>
@@ -321,7 +326,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            <!-- Notification -->
+
+
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
