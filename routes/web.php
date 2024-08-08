@@ -48,8 +48,8 @@ use App\Http\Controllers\Students\sslController as sslcz;
 |
 */
 
-// Route::get('/register', [auth::class, 'signUpForm'])->name('register');
-// Route::post('/register', [auth::class, 'signUpStore'])->name('register.store');
+// Route::get('admin/register', [auth::class, 'signUpForm'])->name('register');
+// Route::post('admin/register', [auth::class, 'signUpStore'])->name('register.store');
 Route::get('admin/login', [auth::class, 'signInForm'])->name('admin.login');
 Route::post('admin/login', [auth::class, 'signInCheck'])->name('admin.check');
 Route::get('admin/logout', [auth::class, 'signOut'])->name('admin.logout');
@@ -111,11 +111,8 @@ Route::get('password/reset/{token}', [ResetPasswordController::class, 'showReset
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 // frontend pages
-Route::middleware(['checkstudent'])->group(function () {
-    Route::get('home', [HomeController::class, 'index'])->name('home');
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-});
-
+Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/master',[HomeController::class, 'master']);
 Route::get('/master-practitioner',[HomeController::class, 'master_practitioner']);
@@ -123,26 +120,28 @@ Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/article', [HomeController::class, 'article']);
 Route::get('/practitioner', [HomeController::class, 'practitioner']);
 
-Route::get('searchCourse', [SearchCourseController::class, 'index'])->name('searchCourse'); 
-Route::get('courseDetails/{id}', [course::class, 'frontShow'])->name('courseDetails');
-Route::get('watchCourse/{id}', [watchCourse::class, 'watchCourse'])->name('watchCourse');
-Route::get('instructorProfile/{id}', [instructor::class, 'frontShow'])->name('instructorProfile');
-Route::get('checkout', [checkout::class, 'index'])->name('checkout');
-Route::post('checkout', [checkout::class, 'store'])->name('checkout.store');
+Route::middleware(['checkstudent'])->group(function () {
+    Route::get('searchCourse', [SearchCourseController::class, 'index'])->name('searchCourse'); 
+    Route::get('courseDetails/{id}', [course::class, 'frontShow'])->name('courseDetails');
+    Route::get('watchCourse/{id}', [watchCourse::class, 'watchCourse'])->name('watchCourse');
+    Route::get('instructorProfile/{id}', [instructor::class, 'frontShow'])->name('instructorProfile');
+    Route::get('checkout', [checkout::class, 'index'])->name('checkout');
+    Route::post('checkout', [checkout::class, 'store'])->name('checkout.store');
 
-// Cart
-Route::get('/cart_page', [CartController::class, 'index']);
-Route::get('cart', [CartController::class, 'cart'])->name('cart');
-Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
-Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
-Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+    // Cart
+    Route::get('/cart_page', [CartController::class, 'index']);
+    Route::get('cart', [CartController::class, 'cart'])->name('cart');
+    Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+    Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+    Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
 
-// Coupon
-Route::post('coupon_check', [CartController::class, 'coupon_check'])->name('coupon_check');
+    // Coupon
+    Route::post('coupon_check', [CartController::class, 'coupon_check'])->name('coupon_check');
 
-/* ssl payment */
-Route::post('/payment/ssl/notify', [sslcz::class, 'notify'])->name('payment.ssl.notify');
-Route::post('/payment/ssl/cancel', [sslcz::class, 'cancel'])->name('payment.ssl.cancel');
+    /* ssl payment */
+    Route::post('/payment/ssl/notify', [sslcz::class, 'notify'])->name('payment.ssl.notify');
+    Route::post('/payment/ssl/cancel', [sslcz::class, 'cancel'])->name('payment.ssl.cancel');
+});
 
 
 // Route::get('/about', function () {
