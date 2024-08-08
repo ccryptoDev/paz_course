@@ -11,7 +11,7 @@
                     <div class="row no-gutters">
                         <div class="col-xl-12">
                             <div class="auth-form">
-                                <h4 class="text-center mb-4">Sign up your account</h4>
+                                <h4 class="text-center mb-4">Sign up your admin account</h4>
                                 <form action="{{route('register.store')}}" method="POST">
                                     @csrf
                                     <div class="form-group">
@@ -32,10 +32,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label><strong>Phone Number</strong></label>
-                                        <input type="text" class="form-control" value="{{old('contact_en')}}"
-                                            name="contact_en" id="contact_en" placeholder="Enter Contact No">
-                                        @if($errors->has('contact_en'))
-                                        <small class="d-block text-danger">{{$errors->first('contact_en')}}</small>
+                                        <input type="text" class="form-control" value="{{old('contactNumber')}}"
+                                            name="contactNumber" id="contactNumber" placeholder="Enter Contact No">
+                                        @if($errors->has('contactNumber'))
+                                        <small class="d-block text-danger">{{$errors->first('contactNumber')}}</small>
                                         @endif
                                     </div>
                                     <div class="form-group">
@@ -56,7 +56,7 @@
                                     </div>
                                 </form>
                                 <div class="new-account mt-3">
-                                    <p>Already have an account? <a class="text-primary" href="{{route('login')}}">Sign
+                                    <p>Already have an account? <a class="text-primary" href="{{route('admin.login')}}">Sign
                                             in</a></p>
                                 </div>
                             </div>
