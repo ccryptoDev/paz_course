@@ -23,13 +23,13 @@
                             <a href="{{ route('about') }}" class="nav__menu__item__link">עלינו</a>
                         </li>
                         <li class="nav__menu__item">
-                            <a class="nav__menu__item__link">אנשי קשר</a>
+                            <a href="{{ route('contact') }}" class="nav__menu__item__link">אנשי קשר</a>
                         </li>
                         <li class="nav__menu__item">
                             <a class="nav__menu__item__link">תנאים</a>
                         </li>
                         <li class="nav__menu__item">
-                            <a class="nav__menu__item__link">קורסים</a>
+                            <a href="{{ route('searchCourse') }}" class="nav__menu__item__link">קורסים</a>
                         </li>
                     </ul>
                 </div>
