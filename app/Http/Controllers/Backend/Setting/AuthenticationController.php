@@ -22,19 +22,19 @@ class AuthenticationController extends Controller
     {
         try {
             $user = new User;
-            $user->name_en = $request->name;
-            $user->contact_en = $request->contact_en;
+            $user->name = $request->name;
+            $user->phone = $request->contactNumber;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
-            $user->role_id = 4;
+            $user->role_id = 3; // instructor role_id
             // dd($request->all()); 
             if ($user->save())
-                return redirect('admin/login')->with('success', 'Successfully Registered');
+                return redirect()->route('admin.login')->with('success', 'Successfully Registered');
             else
-                return redirect('admin/login')->with('danger', 'Please Try Again');
+                return redirect()->route('admin.login')->with('danger', 'Please Try Again');
         } catch (Exception $e) {
             dd($e);
-            return redirect('admin/login')->with('danger', 'Please Try Again');
+            return redirect()->route('admin.login')->with('danger', 'Please Try Again');
         }
     }
 
@@ -75,7 +75,7 @@ class AuthenticationController extends Controller
         return request()->session()->put(
             [
                 'admin_userId' => encryptor('encrypt', $user->id),
-                'admin_userName' => encryptor('encrypt', $user->name_en),
+                'admin_userName' => encryptor('encrypt', $user->name),
                 'admin_emailAddress' => encryptor('encrypt', $user->email),
                 'role_id' => encryptor('encrypt', $user->role_id),
                 'accessType' => encryptor('encrypt', $user->full_access),
