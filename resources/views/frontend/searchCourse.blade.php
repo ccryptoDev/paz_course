@@ -379,7 +379,7 @@
                             <div class="contentCard-bottom">
                                 <h5>
                                     <a href="{{route('courseDetails', ['id' => encryptor('encrypt', $c->id)])}}"
-                                        class="font-title--card">{{$c->title_en}}</a>
+                                        class="font-title--card">{{$c->title}}</a>
                                 </h5>
                                 <div class="contentCard-info d-flex align-items-center justify-content-between">
                                     <a href="{{route('instructorProfile', encryptor('encrypt', $c->instructor?->id))}}"
@@ -389,8 +389,8 @@
                                         <p class="font-para--md">{{$c->instructor?->name_en}}</p>
                                     </a>
                                     <div class="price">
-                                        <span>{{$c->price==null?'Free':'৳'.$c->price}}</span>
-                                        <del>{{$c->old_price?'৳'.$c->old_price:''}}</del>
+                                        <span>{{$c->price==null ? 'Free' : '$'.$c->price}}</span>
+                                        <del>{{$c->old_price ? '$'.$c->old_price : ''}}</del>
                                     </div>
                                 </div>
                                 <div class="contentCard-more">
@@ -468,17 +468,17 @@
 <script src="{{asset('frontend/src/scss/vendors/plugin/js/jquery-ui.min.js')}}"></script>
 <script>
     const filterBtn = document.querySelector("#filter");
-            const cross = document.querySelector(".filter--cross");
+    const cross = document.querySelector(".filter--cross");
 
-            filterBtn.addEventListener("click", function () {
-                let sidebar = document.querySelector(".filter-sidebar");
-                sidebar.classList.toggle("active");
-            });
+    filterBtn.addEventListener("click", function () {
+        let sidebar = document.querySelector(".filter-sidebar");
+        sidebar.classList.toggle("active");
+    });
 
-            cross.addEventListener("click", function () {
-                let sidebar = document.querySelector(".filter-sidebar");
-                sidebar.classList.remove("active");
-            });
+    cross.addEventListener("click", function () {
+        let sidebar = document.querySelector(".filter-sidebar");
+        sidebar.classList.remove("active");
+    });
 </script>
 
 @endpush

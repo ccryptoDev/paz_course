@@ -63,7 +63,7 @@
                                                         src="{{asset('uploads/courses/'.$e->course?->image)}}"
                                                         alt="">
                                                 </td>
-                                                <td><strong>{{$e->course?->price==null?'Free':'৳'.$e->course?->price}}</strong></td>
+                                                <td><strong>{{$e->course?->price==null?'Free':'$'.$e->course?->price}}</strong></td>
                                                 <td><strong>{{$e->enrollment_date}}</strong></td>
                                                 <td>
                                                     <a href="{{route('enrollment.edit', encryptor('encrypt',$e->id))}}"
