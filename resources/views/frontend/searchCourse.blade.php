@@ -48,6 +48,7 @@
             </div>
         </div>
         <div class="row">
+            <!-- Sidebar -->
             <div class="col-lg-4 d-none d-lg-block">
                 <div class="accordion sidebar-filter" id="sidebarFilter">
                     <!-- Search by Category  -->
@@ -386,7 +387,7 @@
                                         class="contentCard-user d-flex align-items-center">
                                         <img src="{{asset('uploads/users/'.$c->instructor?->image)}}"
                                             alt="Instructor Image" class="rounded-circle" height="34" width="34" />
-                                        <p class="font-para--md">{{$c->instructor?->name_en}}</p>
+                                        <p class="font-para--md">{{$c->instructor?->name}}</p>
                                     </a>
                                     <div class="price">
                                         <span>{{$c->price==null ? 'Free' : '$'.$c->price}}</span>

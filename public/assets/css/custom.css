@@ -77,7 +77,68 @@ header .user-image img {
 .info-student-topic dd {
   margin-bottom: 0;
 }
+/* breadcrumb */
+.breadcrumb-item+.breadcrumb-item {
+  color: #3B2463 !important;
+}
+.breadcrumb-item+.breadcrumb-item a {
+  color: #3B2463 !important;
+}
 .breadcrumb-item+.breadcrumb-item::before {
   float: right;
   padding-left: 0.5rem;
+}
+
+/* course page */
+.contentCard-bottom h5 {
+  height: 54px;
+  max-height: 54px;
+}
+.accordion-button::after {
+  margin-left: unset;
+}
+.sidebar-filter .accordion-body__item .check-box .checkbox-primary[type='checkbox'] {
+  margin-right: 0;
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+}
+.sidebar-filter .accordion-header {
+  padding: 10px 0px;
+}
+.sidebar-filter .accordion-button {
+  font-size: 18px;
+}
+.contentCard-user img {
+  margin-right: 0 !important;
+  margin-left: 8px !important;
+}
+.contentCard-more {
+  justify-content: space-between;
+}
+.contentCard-more>div {
+  margin: 0;
+  gap: 5px;
+}
+.contentCard-more .icon {
+  margin: 0;
+}
+.event-search-bar .form-input-group input {
+  height: 60px;
+  padding-left: 0;
+  padding-right: 50px;
+}
+.event-search-bar .form-input-group button {
+  left: 18px;
+  right: unset;
+  padding: 10px 25px !important;
+}
+.event-search-bar .form-input-group svg {
+  right: 10px;
+  left: unset;
+}
+/* course detail */
+.course-overview .nav {
+  position: unset;
+  width: auto;
 }

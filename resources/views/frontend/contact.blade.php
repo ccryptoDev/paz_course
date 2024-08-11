@@ -83,7 +83,7 @@
                     </div>
                     <div class="contact-feature-text">
                         <h6>Email</h6>
-                        <h5>Edu.bd@gmail.com</h5>
+                        <h5>contact.paz@gmail.com</h5>
                     </div>
                 </div>
 

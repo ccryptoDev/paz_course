@@ -13,20 +13,20 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb align-items-center bg-transparent p-0 mb-0">
                 <li class="breadcrumb-item">
-                    <a href="index.html" class="fs-6 text-secondary">Home</a>
+                    <a href="{{ route('home') }}" class="fs-6 text-secondary">Home</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#" class="fs-6 text-secondary">Course</a>
+                    <a href="{{ route('searchCourse') }}" class="fs-6 text-secondary">Course</a>
                 </li>
                 <li class="breadcrumb-item fs-6 text-secondary d-none d-lg-inline-block" aria-current="page">
-                    {{ $course->title_en }}
+                    {{ $course->title }}
                 </li>
             </ol>
         </nav>
         <div class="row event-sub-section-main">
             <div class="col-lg-8">
                 <h3 class="font-title--sm">
-                    {{ $course->title_en }}
+                    {{ $course->title }}
                 </h3>
                 <div class="created-by d-flex align-items-center">
                     <div class="created-by-image me-3">
@@ -36,7 +36,7 @@
                     <div class="created-by-text">
                         <p>Created by</p>
                         <h6>
-                            <a href="{{route('instructorProfile', encryptor('encrypt', $course->instructor->id))}}">{{$course->instructor?->name_en}}
+                            <a href="{{route('instructorProfile', encryptor('encrypt', $course->instructor->id))}}">{{$course->instructor?->name}}
                             </a>
                         </h6>
                     </div>
@@ -150,19 +150,19 @@
                             <div class="row course-overview-main mt-4">
                                 <div class="course-overview-main-item">
                                     <h6 class="font-title--card">Description</h6>
-                                    <p class="mb-3 font-para--lg">{{$course->description_en}}</p>
+                                    <p class="mb-3 font-para--lg">{{$course->description}}</p>
                                 </div>
                                 <div class="course-overview-main-item">
                                     <h6 class="font-title--card">Requirments</h6>
-                                    <p class="mb-2 font-para--lg">{{$course->prerequisites_en}}</p>
+                                    <p class="mb-2 font-para--lg">{{$course->prerequisites}}</p>
                                 </div>
                                 <div class="course-overview-main-item">
                                     <h6 class="font-title--card">Who This Course is For</h6>
-                                    <p class="mb-2 font-para--lg">{{$course->description_en}}</p>
+                                    <p class="mb-2 font-para--lg">{{$course->description}}</p>
                                 </div>
                                 <div class="course-overview-main-item mb-0">
                                     <h6 class="font-title--card">What You Will be Learn</h6>
-                                    <p class="mb-2 font-para--lg">{{$course->description_en}}</p>
+                                    <p class="mb-2 font-para--lg">{{$course->description}}</p>
                                 </div>
                             </div>
                         </div>
@@ -580,7 +580,7 @@
                                             <div class="instructor-text">
                                                 <h6 class="font-title--xs mb-0">
                                                     <a
-                                                        href="instructor-profile.html">{{$course->instructor?->name_en}}</a>
+                                                        href="instructor-profile.html">{{$course->instructor?->name}}</a>
                                                 </h6>
                                                 <p class="font-para--md">
                                                     {{($course->instructor?->designation)?$course->instructor?->designation:'No
