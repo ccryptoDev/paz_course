@@ -1,0 +1,44 @@
+.card-text:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 544px) {
+  .card-text {
+      -ms-flex: 0 0 83.33333%;
+      flex: 0 0 83.33333%;
+      max-width: 83.33333%;
+  }
+}
+.card-header {
+  padding: .625rem;
+  background-color: #fafbfc;
+  border-bottom: 1px solid #dbe6e9;
+}
+.card-header .card-title {
+  line-height: 1.5rem;
+}
+.form-group.row {
+  margin-bottom: 1.2rem;
+}
+.form-group.row>label {
+  padding-top: calc(.375rem + 1px);
+  padding-bottom: calc(.375rem + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1.5;
+}
+@media (min-width: 544px) {
+  .form-group.row>label {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    text-align: right;
+    padding-right: 25px;
+  }
+}
+.card-footer:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.card-footer {
+  padding: .625rem .9375rem;
+  background-color: #fafbfc;
+  border-top: 1px solid #dbe6e9;
+}
