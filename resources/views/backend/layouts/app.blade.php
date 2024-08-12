@@ -12,6 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.ico')}}">
     <link rel="stylesheet" href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 
     @stack('styles')
 
@@ -242,6 +243,26 @@
                             <li><a href="{{route('material.index')}}"><i class="las la-atom"></i></i>Materials</a></li>
                         </ul>
                     </li>
+                    <!-- page settings -->
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="las la-book-open"></i>
+                            <span class="nav-text">Pages</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <a href="{{route('aboutPage.edit')}}"><i class="las la-chalkboard-teacher"></i>
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('contactPage.edit')}}"><i class="las la-book-reader"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li><a class="" href="{{route('enrollment.index')}}" aria-expanded="false">
                             <i class="las la-bullseye"></i>
                             <span class="nav-text">Enrollments</span>

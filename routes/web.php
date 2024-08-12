@@ -31,6 +31,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Backend\Pages\ContactPageController as contactPage;
+use App\Http\Controllers\Backend\Pages\AboutPageController as aboutPage;
 
 /* students */
 use App\Http\Controllers\Students\AuthController as sauth;
@@ -81,6 +83,12 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function () {
     Route::resource('message', message::class);
     Route::resource('coupon', coupon::class);
     Route::resource('enrollment', enrollment::class);
+
+    Route::get('pages/contact', [contactPage::class, 'edit'])->name('contactPage.edit');    // admin contact page
+    Route::post('pages/contact', [contactPage::class, 'update'])->name('contactPage.update');
+    Route::get('pages/about', [aboutPage::class, 'edit'])->name('aboutPage.edit');    // admin about page
+    Route::post('pages/about', [aboutPage::class, 'update'])->name('aboutPage.update');
+    
     Route::get('permission/{role}', [permission::class, 'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class, 'save'])->name('permission.save');
 });
