@@ -116,6 +116,18 @@ header .user-image img {
 .contentCard-user img {
   margin-right: 0 !important;
   margin-left: 8px !important;
+  width: 40px;
+  height: 40px;
+}
+.contentCard-course--status {
+  gap: 5px;
+}
+.contentCard-course--status span {
+  margin-right: 0px;
+  color: #3B2463;
+}
+.contentCard-course--status span {
+  margin-right: 0;
 }
 .contentCard-more {
   justify-content: space-between;
@@ -142,11 +154,101 @@ header .user-image img {
   left: unset;
 }
 /* course detail */
+.event-sub-section-main .icon-with-date-start {
+  margin-right: 0;
+  margin-left: 45px;
+}
+.event-sub-section-main .icon-with-date-start p, .event-sub-section-main .icon-with-date-end p {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.course-overview-image {
+  width: 100%;
+}
+.course-overview-image img {
+  width: 100%;
+}
 .course-overview .nav {
   position: unset;
   width: auto;
+}
+.event-info .courseCard--wrapper {
+  margin-top: -75px;
+}
+.cart__price .current-price h3, .cart__price .current-price .h3 {
+  margin-right: 0;
+  margin-left: 6px;
+}
+.cart__includes-info ul li span {
+  margin-right: 0;
+  margin-left: 16px;
+}
+.social-icons li {
+  margin-right: 0;
+  margin-left: 12px;
+}
+.nav.course-overview-nav::before {
+  display: none;
+}
+.course-overview-nav .nav-item .nav-link {
+  margin-right: 0;
+  margin-left: 30px;
+}
+.course-curriculum-area .curriculum-area-top-start p {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.course-curriculum-area .curriculum-area-top-end {
+  gap: 20px;
+}
+.course-curriculum-area .curriculum-area-top-end .total-lesson {
+  margin-right: 0;
+}
+.course-curriculum-area .curriculum-area-top-end .total-lesson p {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.course-curriculum-area .curriculum-area-top-end .total-hours p {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.course-instructor-info .instructor-image {
+  margin-right: 0;
+  margin-left: 20px;
+}
+.course-instructor-info .instructor-text .ratings-icon p {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.list-inline-item:not(:last-child) {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+.students-feedback-item .feedback-rating-start {
+  gap: 12px;
+}
+.students-feedback-item .feedback-rating-start .text {
+  margin-left: 0;
+}
+.testimonial__item-star li {
+  margin-right: 0;
+  margin-left: 5px;
 }
 /* footer */
 /* .footer .footer__profile.logged::before {
   display: none;
 } */
+
+/* buton */
+.button--primary-outline {
+  border: 2px solid #3B2463;
+  /* color: #3B2463; */
+  color: #ffffff;
+  background: #3B2463;
+}
+.button--primary-outline:hover {
+  color: #212529;
+  background: #F36F21;
+  /* -webkit-box-shadow: 0px 10px 20px 0px #662804;
+  box-shadow: 0px 10px 20px 0px #662804; */
+}

@@ -29,7 +29,7 @@
                     {{ $course->title }}
                 </h3>
                 <div class="created-by d-flex align-items-center">
-                    <div class="created-by-image me-3">
+                    <div class="created-by-image ms-3">
                         <img src="{{asset('uploads/users/'.$course->instructor?->image)}}" class="rounded-circle"
                             alt="Instructor Image" height="75" width="75" />
                     </div>
@@ -1487,24 +1487,21 @@
                                             <div class="pagination pb-0 justify-content-center">
                                                 <div class="pagination-group">
                                                     <a href="#" class="p_prev">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="9.414"
-                                                            height="16.828" viewBox="0 0 9.414 16.828">
-                                                            <path data-name="Icon feather-chevron-left"
-                                                                d="M20.5,23l-7-7,7-7"
-                                                                transform="translate(-12.5 -7.586)" fill="none"
-                                                                stroke="currentColor" stroke-linecap="round"
-                                                                stroke-linejoin="round" stroke-width="2"></path>
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!1" class="cdp_i active">01</a>
-                                                    <a href="#!2" class="cdp_i">02</a>
-                                                    <a href="#!3" class="cdp_i">03</a>
-                                                    <a href="#!+1" class="p_next">
                                                         <svg width="10" height="16" viewBox="0 0 10 16" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor"
-                                                                stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round"></path>
+                                                            <path d="M1.5 1L8.5 8L1.5 15" stroke="#35343E" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#!3" class="cdp_i">03</a>
+                                                    <a href="#!2" class="cdp_i">02</a>
+                                                    <a href="#!1" class="cdp_i active">01</a>
+                                                    <a href="#!+1" class="p_next">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828"
+                                                            viewBox="0 0 9.414 16.828">
+                                                            <path data-name="Icon feather-chevron-left" d="M20.5,23l-7-7,7-7"
+                                                                transform="translate(-12.5 -7.586)" fill="none" stroke="#1a2224"
+                                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                                                         </svg>
                                                     </a>
                                                 </div>
@@ -1578,7 +1575,7 @@
                                                     </div>
                                                     <p>Course Rating</p>
                                                 </div>
-                                                <div class="ms-lg-4 rating-range">
+                                                <div class="me-lg-4 rating-range">
                                                     <div class="rating-range-item d-flex align-items-center">
                                                         <div class="rating-range-item-ratings">
                                                             <ul class="list-inline">
@@ -1922,7 +1919,6 @@
                                                         <span>(57,685)</span>
                                                     </h5>
                                                     <div class="right">
-                                                        <h6 class="font-para--md">Sort by:</h6>
                                                         <div class="dropdown ms-2">
                                                             <button
                                                                 class="dropdown-toggle font-para--md border-0 bg-white"
@@ -1948,6 +1944,7 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
+                                                        <h6 class="font-para--md">:Sort by</h6>
                                                     </div>
                                                 </div>
                                                 <div class="students-feedback-item">
@@ -2433,7 +2430,7 @@
 </section>
 
 {{-- Related Course --}}
-<section class="section new-course-feature section--bg-offwhite-five">
+{{-- <section class="section new-course-feature section--bg-offwhite-five">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -2441,7 +2438,7 @@
             </div>
             <div class="row">
                 <div class="col-12 position-relative px-0 mx-0">
-                    <div class="new__courses">
+                    <div class="related__courses owl-carousel">
                         <div class="contentCard contentCard--course contentCard--space">
                             <div class="contentCard-top">
                                 <a href="#"><img src="{{asset('frontend/dist/images/courses/demo-img-01.png')}}"
@@ -2668,26 +2665,48 @@
         <img src="{{asset('frontend/dist/images/shape/dots/dots-img-15.png')}}" alt="shape"
             class="img-fluid shape02" />
     </div>
-</section>
+</section> --}}
 @endsection
 
 @push('scripts')
 <script src="{{asset('frontend/src/scss/vendors/plugin/js/jquery.star-rating-svg.js')}}"></script>
 <script>
-    // Students Feedback
-            $(".rating-icons-2").starRating({
-                starSize: 30,
-                activeColor: "#FF7A1A",
-                hoverColor: "#FF7A1A",
-                ratedColors: ["#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A"],
-                emptyColor: "red",
-                initialRating: 5,
-                readOnly: true,
-                useFullStars: true,
-                starGradient: {
-                    start: "#FF7A1A",
-                    end: "#FF7A1A",
-                },
-            });
+    $(document).ready(function() {
+        // Students Feedback
+        $(".rating-icons-2").starRating({
+            starSize: 30,
+            activeColor: "#FF7A1A",
+            hoverColor: "#FF7A1A",
+            ratedColors: ["#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A", "#FF7A1A"],
+            emptyColor: "red",
+            initialRating: 5,
+            readOnly: true,
+            useFullStars: true,
+            starGradient: {
+                start: "#FF7A1A",
+                end: "#FF7A1A",
+            },
+        });
+
+        // var owlReview = $('.related__courses');
+        // owlReview.owlCarousel({
+        //     dots:true,
+        //     margin:0,
+        //     loop: true,
+        //     smartSpeed:1500,
+        //     responsive : {
+        //         0 : {
+        //             items:1,
+        //             nav:false,
+        //             slideBy: 1
+        //         },
+        //         1025: {
+        //             items:2,
+        //             nav:true,
+        //             slideBy: 2
+        //         }
+        //     }
+        // });
+    });
 </script>
 @endpush
