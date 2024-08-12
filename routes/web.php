@@ -116,7 +116,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/master',[HomeController::class, 'master']);
 Route::get('/master-practitioner',[HomeController::class, 'master_practitioner']);
-Route::get('/blog', [HomeController::class, 'blog']);
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/article', [HomeController::class, 'article']);
 Route::get('/practitioner', [HomeController::class, 'practitioner']);
 

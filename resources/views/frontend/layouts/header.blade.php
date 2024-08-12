@@ -12,7 +12,7 @@
         <div class="container">
             <div class="nav__wrapper">
                 <div class="nav__logo">
-                    <a class="nav__logo__link">
+                    <a href="{{ route('home') }}" class="nav__logo__link">
                         <img class="nav__logo__link__img" src="{{asset('assets/img/template/logo.svg')}}">
                         <img class="nav__logo__link__img nav__logo__link__img_mb" src="{{asset('assets/img/template/logo_light.svg')}}">
                     </a>
@@ -20,16 +20,23 @@
                 <div class="nav__menu">
                     <ul class="nav__menu__list">
                         <li class="nav__menu__item">
-                            <a href="{{ route('about') }}" class="nav__menu__item__link">עלינו</a>
+                            <a href="{{ route('contact') }}" class="nav__menu__item__link">צור קשר</a>
                         </li>
                         <li class="nav__menu__item">
-                            <a href="{{ route('contact') }}" class="nav__menu__item__link">אנשי קשר</a>
+                            <a href="{{ route('blog') }}" class="nav__menu__item__link">בלוג</a>
                         </li>
                         <li class="nav__menu__item">
-                            <a class="nav__menu__item__link">תנאים</a>
+                            <div class="course-dropdown user-image" id="courseDropdown">
+                                <a href="{{route('studentdashboard')}}" onclick="toggleCourseDropdown(event)" class="nav__menu__item__link">קורסים</a>
+                                <div class="course-dropdown-content">
+                                    <a href="" class="nav__menu__item__link">קורס דמיון מודרך</a>
+                                    <a href="" class="nav__menu__item__link">קורס NLP פרקטישינר</a>
+                                    <a href="" class="nav__menu__item__link">קורס NLP מאסטר</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav__menu__item">
-                            <a href="{{ route('searchCourse') }}" class="nav__menu__item__link">קורסים</a>
+                            <a href="{{ route('about') }}" class="nav__menu__item__link">אודות</a>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +55,7 @@
                         <input type="hidden" name="user_name" value="{{ auth()->user()->name }}">
                     @else
                         <a class="nav__profile" href="{{ route('user.login') }}"><span>התחברות</span></a>
-                    @endauth
+                    @endif
                     <a class="btn" href="">להתחיל</a>
                     {{-- @if (Auth::check())
                         <p>Authenticated</p>

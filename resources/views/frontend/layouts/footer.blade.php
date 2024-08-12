@@ -18,7 +18,11 @@
                     </li>
                 </ul>
             </div>
-            <a class="footer__profile" href=""><span>התחברות</span></a>
+            @if(request()->session()->get('studentLogin'))
+            <a class="footer__profile logged" href="{{ route('studentdashboard') }}"><span>My Account</span></a>
+            @else
+            <a class="footer__profile" href="{{ route('user.login') }}"><span>התחברות</span></a>
+            @endif
         </div>
         <div class="footer__bottom">
             <p class="footer__copyright">© 2023 Paz Courses</p>
