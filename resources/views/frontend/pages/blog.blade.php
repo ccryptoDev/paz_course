@@ -6,6 +6,19 @@
 @endsection
 
 @section('content')
+    <!-- Breadcrumb Starts Here -->
+    <div class="py-0 section--bg-white">
+        <div class="container">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb pb-0 mb-0">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}" class="fs-6 text-secondary">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('blog') }}" class="fs-6 text-secondary">Blog</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Breadcrumb Ends Here -->
+
 <section class="blog">
     <div class="container">
         <div class="blog__top">
