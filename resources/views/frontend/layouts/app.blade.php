@@ -28,12 +28,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
     <style>
-        .dropdown {
+        .dropdown,
+        .course-dropdown {
             position: relative;
             display: inline-block;
         }
-
-        .dropdown-content {
+        .dropdown-content,
+        .course-dropdown-content {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
@@ -41,21 +42,24 @@
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
             /* Adjust this value based on your design */
-
         }
-
-        .dropdown-content a {
+        .course-dropdown-content {
+            min-width: 210px;
+        }
+        
+        .dropdown-content a,
+        .course-dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
-
-        .dropdown-content a:hover {
+        .dropdown-content a:hover,
+        .course-dropdown-content a:hover {
             background-color: #f1f1f1;
         }
-
-        .dropdown.active .dropdown-content {
+        .dropdown.active .dropdown-content,
+        .course-dropdown.active .course-dropdown-content {
             display: block;
         }
     </style>
@@ -89,6 +93,19 @@
             function toggleDropdown(event) {
                 event.preventDefault();
                 var dropdown = document.getElementById('imageDropdown');
+                dropdown.classList.toggle('active');
+        
+                // Close the dropdown when clicking somewhere else on the page
+                document.body.addEventListener('click', function (e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+
+            function toggleCourseDropdown(event) {
+                event.preventDefault();
+                var dropdown = document.getElementById('courseDropdown');
                 dropdown.classList.toggle('active');
         
                 // Close the dropdown when clicking somewhere else on the page
