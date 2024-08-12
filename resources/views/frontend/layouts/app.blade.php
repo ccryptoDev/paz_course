@@ -77,7 +77,6 @@
         @include('frontend.layouts.footer')
 
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets/js/owl/owl.carousel.min.js') }}"></script>
 
         <script src="{{asset('frontend/src/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('frontend/src/scss/vendors/plugin/js/isotope.pkgd.min.js')}}"></script>
@@ -86,6 +85,8 @@
         <script src="{{asset('frontend/src/scss/vendors/plugin/js/jquery.nice-select.min.js')}}"></script>
         <script src="{{asset('frontend/src/js/app.js')}}"></script>
         <script src="{{asset('frontend/dist/main.js')}}"></script>
+
+        <script src="{{ asset('assets/js/owl/owl.carousel.min.js') }}"></script>
 
         <script src="{{ asset('assets/js/script.js') }}"></script>
 

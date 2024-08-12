@@ -16,9 +16,10 @@ class DashboardController extends Controller
     {
         $student_info = User::find(currentUserId());
         $enrollment = Enrollment::where('student_id', currentUserId())->get();
-        $course = Course::get();
+        $activedCourses = Course::inRandomOrder()->limit(3)->get();
         $checkout = Checkout::where('student_id', currentUserId())->get();
+        $completedCourses = Course::inRandomOrder()->limit(3)->get();
         // $purchaseHistory = Enrollment::with(['course', 'checkout'])->orderBy('enrollment_date', 'desc')->get();
-        return view('students.dashboard', compact('student_info','enrollment', 'course','checkout'));
+        return view('students.dashboard', compact('student_info', 'enrollment', 'activedCourses', 'completedCourses', 'checkout'));
     }
 }
