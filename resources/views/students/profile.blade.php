@@ -314,21 +314,20 @@
 @endsection
 
 @push('scripts')
-{{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
 <script>
     $(document).ready(function() {
-            // Hide the file input initially
-            $('#newImageInput').hide();
-    
-            // Trigger the file input when the button is clicked
-            $('#changeImageButton').click(function() {
-                $('#newImageInput').click();
-            });
-    
-            // Automatically submit the form when a file is selected
-            $('#newImageInput').change(function() {
-                $('#changeImageForm').submit();
-            });
+        // Hide the file input initially
+        $('#newImageInput').hide();
+
+        // Trigger the file input when the button is clicked
+        $('#changeImageButton').click(function() {
+            $('#newImageInput').click();
         });
+
+        // Automatically submit the form when a file is selected
+        $('#newImageInput').change(function() {
+            $('#changeImageForm').submit();
+        });
+    });
 </script>
 @endpush
