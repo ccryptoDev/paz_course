@@ -239,6 +239,22 @@ header .user-image img {
   display: none;
 } */
 
+/* instructor profile */
+.instructor-courses .nav {
+  position: unset;
+  gap: 25px;
+}
+.nav.instructor-tabs-pills::before {
+  display: none;
+}
+.instructor-tabs-pills .nav-item .nav-link {
+  margin: 0;
+}
+.rating-icons.rating-icons-modal .jq-star {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
 /* buton */
 .button--primary-outline {
   border: 2px solid #3B2463;

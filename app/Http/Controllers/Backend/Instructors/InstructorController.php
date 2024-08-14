@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Instructors;
 use App\Http\Controllers\Controller;
 use App\Models\Instructor;
 use App\Models\User;
+use App\Models\Course;
 use App\Http\Requests\Backend\Instructors\AddNewRequest;
 use App\Http\Requests\Backend\Instructors\UpdateRequest;
 use App\Models\Role;
@@ -78,8 +79,9 @@ class InstructorController extends Controller
     public function frontShow($id)
     {
         $instructor = Instructor::findOrFail(encryptor('decrypt', $id));
+        $course = Course::where('instructor_id', encryptor('decrypt', $id))->get();
         // dd($course); 
-        return view('frontend.instructorProfile', compact('instructor'));
+        return view('frontend.instructorProfile', compact('instructor', 'course'));
     }
 
     /**
