@@ -444,9 +444,9 @@
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </a>
-                    <a href="#!3" class="cdp_i">03</a>
-                    <a href="#!2" class="cdp_i">02</a>
-                    <a href="#!1" class="cdp_i active">01</a>
+                    <a href="#!3" class="cdp_i active">1</a>
+                    <a href="#!2" class="cdp_i">2</a>
+                    <a href="#!1" class="cdp_i">3</a>
                     <a href="#!+1" class="p_next">
                         <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828"
                             viewBox="0 0 9.414 16.828">

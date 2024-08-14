@@ -194,9 +194,9 @@
                                                 stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </a>
-                                    <a href="#!3" class="cdp_i">03</a>
-                                    <a href="#!2" class="cdp_i">02</a>
-                                    <a href="#!1" class="cdp_i active">01</a>
+                                    <a href="#!3" class="cdp_i active">1</a>
+                                    <a href="#!2" class="cdp_i">2</a>
+                                    <a href="#!1" class="cdp_i">3</a>
                                     <a href="#!+1" class="p_next">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828"
                                             viewBox="0 0 9.414 16.828">
@@ -255,7 +255,17 @@
                             </div>
                         </div>
                         @empty
-                            
+                        <div class="col-12 py-5">
+                            <div class="col-md-6 col-12 mx-auto text-center">
+                                <h5 class="font-title--sm">You Don't Have the activated Course Yet...</h5>
+                                <p class="my-4 font-para--lg">
+                                    Your Course List is Empty!
+                                </p>
+                                <a href="{{route('searchCourse')}}" class="button button-md button--primary">
+                                    Enroll Now!
+                                </a>
+                            </div>
+                        </div>  
                         @endforelse
 
                         <!-- pagination -->
@@ -269,9 +279,9 @@
                                                 stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </a>
-                                    <a href="#!3" class="cdp_i">03</a>
-                                    <a href="#!2" class="cdp_i">02</a>
-                                    <a href="#!1" class="cdp_i active">01</a>
+                                    <a href="#!3" class="cdp_i active">1</a>
+                                    <a href="#!2" class="cdp_i">2</a>
+                                    <a href="#!1" class="cdp_i">3</a>
                                     <a href="#!+1" class="p_next">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828"
                                             viewBox="0 0 9.414 16.828">
@@ -340,9 +350,9 @@
                                                 stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </a>
-                                    <a href="#!3" class="cdp_i">03</a>
-                                    <a href="#!2" class="cdp_i">02</a>
-                                    <a href="#!1" class="cdp_i active">01</a>
+                                    <a href="#!3" class="cdp_i active">1</a>
+                                    <a href="#!2" class="cdp_i">2</a>
+                                    <a href="#!1" class="cdp_i">3</a>
                                     <a href="#!+1" class="p_next">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828"
                                             viewBox="0 0 9.414 16.828">
