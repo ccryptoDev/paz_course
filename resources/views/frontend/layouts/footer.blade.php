@@ -8,13 +8,13 @@
             <div class="footer__menu">
                 <ul class="footer__menu__list">
                     <li class="footer__menu__item">
-                        <a href="" class="footer__menu__item__link">עלינו</a>
+                        <a href="{{ route('contact') }}" class="footer__menu__item__link">צור קשר</a>
                     </li>
                     <li class="footer__menu__item">
-                        <a href="" class="footer__menu__item__link">אנשי קשר</a>
+                        <a href="{{ route('blog') }}" class="footer__menu__item__link">בלוג</a>
                     </li>
                     <li class="footer__menu__item">
-                        <a href="" class="footer__menu__item__link">תנאים</a>
+                        <a href="{{ route('about') }}" class="footer__menu__item__link">אודות</a>
                     </li>
                 </ul>
             </div>
