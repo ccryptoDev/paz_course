@@ -19,9 +19,11 @@
                     <a href="{{ route('searchCourse') }}" class="fs-6 text-secondary">Courses</a>
                 </li>
                 <li class="breadcrumb-item d-none d-lg-inline-block">
-                    <a href="#" class="fs-6 text-secondary">Course Detail Instructor</a>
+                    <a href="javascript:void(0);" class="fs-6 text-secondary">Course Detail Instructor</a>
                 </li>
-                <li class="breadcrumb-item d-none d-lg-inline-block"><a href="#" class="fs-6 text-secondary">{{$instructor->name}}</a></li>
+                <li class="breadcrumb-item d-none d-lg-inline-block">
+                    <a href="javascript:void(0);" class="fs-6 text-secondary">{{$instructor->name}}</a>
+                </li>
             </ol>
         </nav>
     </div>

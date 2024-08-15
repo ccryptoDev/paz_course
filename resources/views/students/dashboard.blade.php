@@ -235,7 +235,7 @@
                                         $randomPercentage = rand(1, 99);
                                     @endphp
                                     <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                        <a href="instructor-profile.html" class="contentCard-user d-flex align-items-center">
+                                        <a href="{{ route('instructorProfile', encryptor('encrypt', $course->instructor?->id)) }}" class="contentCard-user d-flex align-items-center">
                                             <img src="{{asset('uploads/users/' . $course->instructor?->image)}}"
                                                 alt="client-image" class="rounded-circle" />
                                             <p class="font-para--md">{{ $course->instructor?->name }}</p>
@@ -316,7 +316,7 @@
                                         </a>
                                     </h5>
                                     <div class="contentCard-info d-flex align-items-center justify-content-between">
-                                        <a href="" class="contentCard-user d-flex align-items-center">
+                                        <a href="{{ route('instructorProfile', encryptor('encrypt', $course->instructor?->id)) }}" class="contentCard-user d-flex align-items-center">
                                             <img src="{{asset('uploads/users/' . $course->instructor?->image)}}"
                                                 alt="client-image" class="rounded-circle" />
                                             <p class="font-para--md">{{ $course->instructor?->name }}</p>
