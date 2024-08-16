@@ -184,9 +184,13 @@
                                                 <input type="text" class="form-control" name="fullName"
                                                     value="{{$student_info->name}}" placeholder="Enter Your Name" />
                                             </div>
+                                            @php
+                                                $birthDate = old('birthDate', $student_info->date_of_birth ? \Illuminate\Support\Carbon::parse($student_info->date_of_birth)->format('Y-m-d') : '');
+                                            @endphp
                                             <div class="col-lg-6">
                                                 <label for="dob">Date of Birth</label>
-                                                <input type="date" class="form-control" name="dob" />
+                                                <input type="date" class="form-control" name="dob" 
+                                                    value={{ old('dob', $birthDate) }} />
                                             </div>
                                         </div>
                                         <div class="row">
