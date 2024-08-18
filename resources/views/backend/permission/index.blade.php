@@ -43,10 +43,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav nav-pills mb-3">
-                    <li class="nav-item"><a href="#list-view" data-toggle="tab"
-                            class="nav-link btn-primary mr-1 show active">List View</a></li>
-                    <li class="nav-item"><a href="javascript:void()" data-toggle="tab" class="nav-link btn-primary">Grid
-                            View</a></li>
+                    <li class="nav-item">
+                        <a href="#list-view" data-toggle="tab" class="nav-link btn-primary mr-1 show active">
+                            List View
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void()" data-toggle="tab" class="nav-link btn-primary">
+                            Grid View
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-12">
@@ -55,23 +61,23 @@
                         <div class="card px-3 pb-3">
                             <h4>{{$role->type}}</h4>
                             @php
-                            $routes=array();
-                            $auto_accept=array('GET',"DELETE");
-                            $permissions=array();
+                            $routes = array();
+                            $auto_accept = array('GET', "DELETE");
+                            $permissions = array();
                             foreach($permission as $perm){
-                            $permissions[$perm->name]=$perm->name;
+                                $permissions[$perm->name] = $perm->name;
                             }
                             @endphp 
                             @foreach(Illuminate\Support\Facades\Route::getRoutes() as $v)
-                            @if($v->getPrefix()=="/admin")
-                            @php
-                            $rl=explode('.',$v->getName());
-                            if(isset($rl[1]))
-                            $routes[$rl[0]][]=array("method"=>$v->methods[0],"function"=>$rl[1]);
-                            @endphp
-                            @endif
+                                @if($v->getPrefix()=="/admin")
+                                    @php
+                                    $rl = explode('.',$v->getName());
+                                    if (isset($rl[1]))
+                                        $routes[$rl[0]][] = array("method"=>$v->methods[0], "function"=>$rl[1]);
+                                    @endphp
+                                @endif
                             @endforeach
-                            <form action="{{route('permission.save',encryptor('encrypt',$role->id))}}" method="post">
+                            <form action="{{route('permission.save', encryptor('encrypt',$role->id))}}" method="post">
                                 @csrf
                                 <div class="row p-2">
                                     @forelse($routes as $k=>$r)
@@ -80,9 +86,9 @@
                                         @if($r)
                                         <ul class="list-group">
                                             @foreach($r as $name)
-                                            @if(in_array($name['method'],$auto_accept))
+                                            @if(in_array($name['method'], $auto_accept))
                                             <li class="list-group-item">
-                                                @if(in_array($k.'.'.$name['function'],$permissions))
+                                                @if(in_array($k . '.' . $name['function'], $permissions))
                                                 <input type="checkbox" checked name="permission[]" value="{{$k.'.'.$name['function']}}">
                                                 {{__($name['function'])}}
                                                 @else

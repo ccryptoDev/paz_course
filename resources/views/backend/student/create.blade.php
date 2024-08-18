@@ -138,7 +138,7 @@
 
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <button type="submit" class="btn btn-primary">Create</button>
-                                    <button type="submit" class="btn btn-light">Cencel</button>
+                                    <button type="submit" class="btn btn-light" onclick="redirectToIndex(event);">Cancel</button>
                                 </div>
                             </div>
                         </form>
@@ -160,4 +160,10 @@
 
 <!-- Pickdate -->
 <script src="{{asset('js/plugins-init/pickadate-init.js')}}"></script>
+<script>
+    function redirectToIndex(e) {
+        e.preventDefault();
+        window.location.href = "{{ route('instructor.index') }}";
+    }
+</script>
 @endpush
