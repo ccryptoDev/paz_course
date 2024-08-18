@@ -137,7 +137,7 @@
                                 
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <button type="submit" class="btn btn-primary">Update</button>
-                                    <button type="submit" class="btn btn-light">Cencel</button>
+                                    <button type="submit" class="btn btn-light">Cancel</button>
                                 </div>
                             </div>
                         </form>
