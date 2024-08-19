@@ -124,12 +124,12 @@
                                                 <img src="{{asset('uploads/users/'.$d->image)}}" width="100"
                                                     height="100" class="rounded-circle" alt="">
                                             </div>
-                                            <h3 class="mt-4 mb-1">{{$d->name_en}}</h3>
+                                            <h3 class="mt-4 mb-1">{{$d->name}}</h3>
                                             <p class="text-muted">{{$d->role?->name}}</p>
                                             <ul class="list-group mb-3 list-group-flush">
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
                                                     <span>Phone No. :</span>
-                                                    <strong>{{$d->contact_en}}</strong>
+                                                    <strong>{{$d->phone}}</strong>
                                                 </li>
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
                                                     <span class="mb-0">Email :</span>

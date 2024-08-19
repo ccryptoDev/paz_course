@@ -39,7 +39,7 @@ class CouponController extends Controller
            
             if($coupon->save())
                 return redirect()->route('coupon.index')->with('success','Data Saved');
-                else 
+            else 
                 return redirect()->back()->withInput()->with('error', 'Please try again');
         } catch (\Exception $e) {
             dd($e);

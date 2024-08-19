@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="submit" class="btn btn-light">Cancel</button>
+                                    <button type="button" class="btn btn-light" onclick="location.href = '{{ route('lesson.index') }}'">Cancel</button>
                                 </div>
                             </div>
                         </form>
