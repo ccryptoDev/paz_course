@@ -65,7 +65,7 @@
                                                 <img src="{{asset('uploads/courses/'.$d->image)}}" class="w-100"
                                                     height="200" alt="">
                                             </div>
-                                            <h3 class="mt-4 mb-1">{{$d->title_en}}</h3>
+                                            <h3 class="mt-4 mb-1">{{$d->title}}</h3>
                                             <ul class="list-group mb-3 list-group-flush">
                                                 <li class="list-group-item px-0 d-flex justify-content-between">
                                                     <span>Difficulty</span>
