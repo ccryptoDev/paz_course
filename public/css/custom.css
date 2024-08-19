@@ -8,7 +8,7 @@
       max-width: 83.33333%;
   }
 }
-.card-header {
+.card-header:not(#grid-view .card-header) {
   padding: .625rem;
   background-color: #fafbfc;
   border-bottom: 1px solid #dbe6e9;
